@@ -5,19 +5,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style type="text/css">
+        *{margin:0px;
+            padding: 0px;
+        }
+        .snowfall-flakes:before,.snowfall-flakes:after{
+            content: "";/*内容 激活伪元素的必要因素*/
+            position: absolute;
+            width: 20px;
+            height: 30px;
+            background-color: red;
+            border-radius: 10px 10px 0 0;
+            transform: rotate(-45deg);
+        }
+        .snowfall-flakes:after{
+            content: "";
+            transform: rotate(45deg);
+            left: 7px;
+        }
+        body,html{
+            height: 100%;
+            width: 100%;
+        }
+        body {
+            overflow:hidden;/*超出部分被修剪，且不可见*!*/
+            background: url("images/4.jpg");
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+    </style>
+     <link rel="stylesheet" href="./css/index.css">
+     <script src="./js/data.js"></script>
+     <script src="./js/index.js"></script>
 </head>
 <body>
-    <div class="box">123</div>
-    <div class="box1"></div>
-    <div>
-        <ul>
-            <li>昵称</li>
-            <li>性别</li>
-            <li>年龄</li>
-            <li>爱好</li>
-            <li>交通工具</li>
-        </ul>
+    <div class="box">
+            <div class="left"></div>
+            <div class="right"></div>
+            <script src="js/jquery-1.2.6.min.js"></script>
+            <script src="js/snowfall.jquery.js"></script>
+            <script>
+                $(document).snowfall({
+                    falkeCount:50000//设置爱心数目
+                })
+            </script>
+        </div>
+    <!-- 整体项目 -->
+    <div id="all" class="">
+        <!-- 左侧main -->
+        <div id="main">
+            <!-- 所有的li展示列表区域   -->
+            <div id="list">
+                <ul>
+                    <!-- <li>
+                        <b class="liCover"></b>
+                        <p class="liTitle">CSS</p>
+                        <p class="liAuthor">我爱你</p>
+                        <p class="liTime">2019-10-6</p>
+                    </li> -->
+                </ul>
+            </div>
+            <!-- 左下角按钮区域 -->
+            <div id="btn">
+                <ul>
+                    <li>Table</li>
+                    <li>Sphere</li>
+                    <li>Helix</li>
+                    <li>Grid</li>
+                </ul>
+            </div>
 
+            <!-- li被点击是的弹窗区域 -->
+            <div id="alert">
+                <!-- 标题 -->
+                <div class="title">
+                    <span>课题：我感觉你是在为难我</span>
+                </div>
+                <!-- 图片 -->
+                <div class="img">
+                    <img src="./img/index.png" alt="">
+                </div>
+                <!-- 作者 -->
+                <div class="author">
+                    <span>主讲老师：你好</span>
+                </div>
+                <!-- 详细信息介绍 -->
+                <div class="info">
+                    <span>描述：这大概是最屌的案例了...</span>
+                </div>
+            </div>
+
+            <!-- 返回按钮 -->
+            <div id="back">Back</div>
+        </div>
+
+        <!-- 右侧展示 -->
+        <iframe id="frame" scrolling="no"  src="" frameborder="0"></iframe>
     </div>
 </body>
 </html>
